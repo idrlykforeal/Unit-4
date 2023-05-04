@@ -42,7 +42,8 @@ Design overview (Criterion B) provides evidence that the product could be furthe
 - UML Diagram and Class Relationships (if an OOP methodology has been used).
 - Database ER diagram (if a relational database has been used) with examples of how the data look like with normalization.
 <img width="957" alt="image" src="https://user-images.githubusercontent.com/100017195/236351392-7371d4fb-27a7-4472-942f-9990d4e19202.png">
-**Fig #** example ER diagram of users and posts. 
+
+**Fig #** Example ER diagram of users and posts. 
 
 - Data dictionaries (for any data storage system uses).
 - Annotated screen mockups or wireframes.
