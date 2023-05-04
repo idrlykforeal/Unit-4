@@ -32,18 +32,46 @@ To store user information and post informations, SQLite is a great choice since 
 
 ## Criteria B
 
+Design overview (Criterion B) provides evidence that the product could be further developed.
+
+### I. Record of Tasks
+template (0 without)
+Includes all 5 stages of the design cycle (plan, design, develop, test, implement)
+Planned action is specific and defined which results in the expected outcome (logical connection)
+Relates to the product proposed in Criterion A (not a record of making some alternative product)
+Should mainly cover the tasks involved in the development of the product
+Updated during the life of the project (think about a daily entries)
+Provides a realistic plan and timeline for managing the solution, including the gathering of necessary information, the development of the product, the testing process, and the implementation of the product.
+
+### II. Design Overview
+
+#### general outline of the product that is proposed in Criterion A
+#### diagrams
+- System Diagram.
+- Flow diagrams for algorithms.--- in natural language!!!
+- UML Diagram and Class Relationships (if an OOP methodology has been used).
+- Database ER diagram (if a relational database has been used) with examples of how the data look like with normalization.
+- Data dictionaries (for any data storage system uses).
+- Annotated screen mockups or wireframes.
+
+
+#### III. Test Plan
+
+
 ## Criteria C
 
 
 # Appendix
 
-## Appendix 1: Client interview
+## Appendix 1: Client interview - Purpose and requirements
 ![client_interview_notes](https://user-images.githubusercontent.com/100017195/236198304-4cd2324d-17b8-46e5-abe6-c01ac45dd770.jpeg)
 **Attatchment 1** Client interview notes
 
 https://drive.google.com/file/d/1UpFwpFS8vu2FSt0gse6tdO1JlY3B_99_/view?usp=share_link
 
 **Attatchment 2** Client interview recording (Gooogle Drive link)
+
+## Appendix 2: Client interview - Feedback 
 
 
 [^1]: “Back-End Development.” Benefits of Choosing Flask | Light IT. Accessed May 4, 2023. https://light-it.net/expertise/backend-development/flask/. 
