@@ -60,6 +60,10 @@ Provides a realistic plan and timeline for managing the solution, including the 
 
 ## Criteria C
 
+Success criteria 
+Problem: what im solving, what the problem is 
+Code 
+Explain the code —explanation: put computational thinking 
 
 # Appendix
 
