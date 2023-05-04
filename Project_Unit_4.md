@@ -35,13 +35,13 @@ To store user information and post informations, SQLite is a great choice since 
 Design overview (Criterion B) provides evidence that the product could be further developed.
 
 ### I. Record of Tasks
-template (0 without)
-Includes all 5 stages of the design cycle (plan, design, develop, test, implement)
-Planned action is specific and defined which results in the expected outcome (logical connection)
-Relates to the product proposed in Criterion A (not a record of making some alternative product)
-Should mainly cover the tasks involved in the development of the product
-Updated during the life of the project (think about a daily entries)
-Provides a realistic plan and timeline for managing the solution, including the gathering of necessary information, the development of the product, the testing process, and the implementation of the product.
+- template (0 without)
+- Includes all 5 stages of the design cycle (plan, design, develop, test, implement)
+- Planned action is specific and defined which results in the expected outcome (logical connection)
+- Relates to the product proposed in Criterion A (not a record of making some alternative product)
+- Should mainly cover the tasks involved in the development of the product
+- Updated during the life of the project (think about a daily entries)
+- Provides a realistic plan and timeline for managing the solution, including the gathering of necessary information, the development of the product, the - - testing process, and the implementation of the product.
 
 ### II. Design Overview
 
