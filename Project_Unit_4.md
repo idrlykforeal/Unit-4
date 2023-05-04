@@ -34,7 +34,19 @@ To store user information and post informations, SQLite is a great choice since 
 
 Design overview (Criterion B) provides evidence that the product could be further developed.
 
-### I. Record of Tasks
+#### general outline of the product that is proposed in Criterion A
+#### diagrams
+- System Diagram.
+
+- Flow diagrams for algorithms.--- in natural language!!!
+- UML Diagram and Class Relationships (if an OOP methodology has been used).
+- Database ER diagram (if a relational database has been used) with examples of how the data look like with normalization.
+- Data dictionaries (for any data storage system uses).
+- Annotated screen mockups or wireframes.
+![wiafram](https://user-images.githubusercontent.com/100017195/236349210-16fc96d9-19c5-4a13-bfbd-4b38059ebc4f.jpg)
+**Fig #** Wireframe diagram for Ikou Network.
+
+### Record of Tasks
 - template (0 without)
 - Includes all 5 stages of the design cycle (plan, design, develop, test, implement)
 - Planned action is specific and defined which results in the expected outcome (logical connection)
@@ -43,19 +55,12 @@ Design overview (Criterion B) provides evidence that the product could be furthe
 - Updated during the life of the project (think about a daily entries)
 - Provides a realistic plan and timeline for managing the solution, including the gathering of necessary information, the development of the product, the - - testing process, and the implementation of the product.
 
-### II. Design Overview
-
-#### general outline of the product that is proposed in Criterion A
-#### diagrams
-- System Diagram.
-- Flow diagrams for algorithms.--- in natural language!!!
-- UML Diagram and Class Relationships (if an OOP methodology has been used).
-- Database ER diagram (if a relational database has been used) with examples of how the data look like with normalization.
-- Data dictionaries (for any data storage system uses).
-- Annotated screen mockups or wireframes.
+### Design Overview
 
 
-#### III. Test Plan
+
+
+#### Test Plan
 
 
 ## Criteria C
