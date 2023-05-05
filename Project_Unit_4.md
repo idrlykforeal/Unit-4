@@ -37,6 +37,9 @@ Design overview (Criterion B) provides evidence that the product could be furthe
 #### general outline of the product that is proposed in Criterion A
 #### diagrams
 - System Diagram.
+<img width="1252" alt="image" src="https://user-images.githubusercontent.com/100017195/236354824-3c19ee2b-650b-4030-a5dc-84f192877922.png">
+
+**Fig #** System diagram of Ikou Network
 
 - Flow diagrams for algorithms.--- in natural language!!!
 - UML Diagram and Class Relationships (if an OOP methodology has been used).
