@@ -37,7 +37,6 @@ To store user information and post informations, SQLite is a great choice since 
 
 Design overview (Criterion B) provides evidence that the product could be further developed.
 
-#### general outline of the product that is proposed in Criterion A
 #### diagrams
 - System Diagram.
 <img width="1252" alt="image" src="https://user-images.githubusercontent.com/100017195/236354824-3c19ee2b-650b-4030-a5dc-84f192877922.png">
@@ -74,10 +73,8 @@ Design overview (Criterion B) provides evidence that the product could be furthe
 
 
 
-
 **Fig #** Example ER diagram of users and posts. 
 
-- Data dictionaries (for any data storage system uses).
 - Annotated screen mockups or wireframes.
 ![wiafram](https://user-images.githubusercontent.com/100017195/236349210-16fc96d9-19c5-4a13-bfbd-4b38059ebc4f.jpg)
 **Fig #** Wireframe diagram for Ikou Network.
@@ -116,10 +113,43 @@ Design overview (Criterion B) provides evidence that the product could be furthe
 
 ## Criteria C
 
+### Success criteria 1: Administrator accounts
+
+
+### Success criteria 2: Posting pictures
+
+### Success criteria 3: Protected administrator content
+
+### Success criteria 4: View post whether
+
+### Success criteria 5: Navigation bar
+
+
 Success criteria 
 Problem: what im solving, what the problem is 
 Code 
 Explain the code —explanation: put computational thinking 
+
+
+## Criteria D
+
+
+
+## Criteria E
+
+### User Evaluation
+- client ( with reference to the interview)
+  - client feedback reference to appendix
+- other user
+
+### Recommendation for future development
+
+#### 1
+identify + justify
+
+#### 2
+
+
 
 # Appendix
 
