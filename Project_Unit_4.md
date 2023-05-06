@@ -19,6 +19,9 @@ To build up the website, HTML and CSS are the base languages of website developm
 
 To store user information and post informations, SQLite is a great choice since SQLite is a lightweight, file-based relational database. It is suitable for small to medium-sized web applications. SQLite stores data in a single file, making access, usage, and maintenance simple.
 
+**Design Statement** I will to design and make a web based social media site for a client who is a high school student-led project that is interested promoting local torism. The SNS will be about sharing and viewing Project planned trips and others' trip experiences and is constructed using the software CSS, HTML and Python. It will take 4 weeks to make and will be evaluated according to the criteria A, B, C, D, and E.
+
+
 ### Success Criteria
 
 | no | success criteria                                                                                                                                                                                     | issue tackled                                                                                                                                                                                    |
