@@ -44,10 +44,36 @@ Design overview (Criterion B) provides evidence that the product could be furthe
 
 **Fig #** System diagram of Ikou Network
 
-- Flow diagrams for algorithms.--- in natural language!!!
-- UML Diagram and Class Relationships (if an OOP methodology has been used).
-- Database ER diagram (if a relational database has been used) with examples of how the data look like with normalization.
+- Flow diagrams for algorithms.
+![flow_login](https://user-images.githubusercontent.com/100017195/236600976-197924e9-e8e8-45b4-b83a-5c777c814b3a.jpeg)
+
+**Fig #** Flow diagram for login algorithm
+
+![API flowchart example](https://user-images.githubusercontent.com/100017195/236601032-379bff5e-531a-49d4-b1b9-0ba24570ad3a.jpeg)
+
+**Fig #** Flow diagram for validation of username
+
+![flow_adminposts](https://user-images.githubusercontent.com/100017195/236601041-4a998e3a-5c19-4827-9822-0aa972b000d7.jpeg)
+
+**Fig #** Flow diagram for administrator post algorithm
+
+
+- Database ER diagram 
 <img width="957" alt="image" src="https://user-images.githubusercontent.com/100017195/236351392-7371d4fb-27a7-4472-942f-9990d4e19202.png">
+
+**Fig #** ER diagram for example data entities used
+
+  - example data:
+<img width="665" alt="image" src="https://user-images.githubusercontent.com/100017195/236601117-bec92def-ee34-468c-a848-0030c499f9a5.png">
+
+**Fig #** Screenshot example of how the user table is structured
+
+<img width="1144" alt="image" src="https://user-images.githubusercontent.com/100017195/236601254-9f437f14-d618-47a6-9498-08868471ccd4.png">
+
+**Fig #** Screenshot example of how the posts table is structured
+
+
+
 
 **Fig #** Example ER diagram of users and posts. 
 
@@ -71,7 +97,22 @@ Design overview (Criterion B) provides evidence that the product could be furthe
 
 
 #### Test Plan
-
+|                     Instruction                    |        Category        |             Input example / code            |                                          Description                                         |                                                                      Expected output                                                                      | Success criteria |
+|:--------------------------------------------------:|:----------------------:|:-------------------------------------------:|:--------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------:|
+| Test registration-success                          | Unit testing           | Username, email, password, password confirm | register account, input username, email, password, password confirm, all information correct | page refreshes, and displays success message "account successfully created"                                                                               |                1 |
+| Test registration-username/email exists            | Unit testing           | Username, email, password, password confirm | input a username/email already used                                                          | if username, email aready used, error displays, saying either username or emal already is registered for an existing account.                             |                1 |
+| Test registration-password error                   | Unit testing           | Username, email, password, password confirm | password does not match, or password less than 8 digits                                      |  If the password do not match, error displays. If the password length is less than 8, error displays.                                                     |                1 |
+| Test the login                                     | Unit testing           | Username and password                       | enter correct username and password, enter incorrect username or password                    | The user logs in if the username and password is correct. Error message displays when the username is not registered, or when the password does not match |                1 |
+| Test registration and login                        | Integrated testing     | Username, email, password, password confirm | register an account, and log in with the correct information                                 | user successfully register an account see a success message, and in log-in successfully log in with the registered account.                               |                1 |
+| Test post page viewability/ post-visitor           | Integrated testing     | N/A                                         | user logged out, and visit "user post" page                                                  | user able to view all the posts posted, but unable to post, receive a text saying"please log in to post"                                                  |                4 |
+| Test post page viewability/ post- regular user     | Integrated testing     | N/A                                         | user logged in regular accounts, visit "user post" page                                      | user able to view all the posts posted, able to post, a post section visible, user able to enter title, content, upload pictures and post                 | 1,2,4            |
+| Test admin post visibility and post-non admin user | Integrated testing     | username, password                          | user either log in to regular account, or not logged in at all. visit page "admin post"      | user able to view all the admin posts, but unable to post admin posts, receive text guide "log in to admin account to post planned trips"                 | 1,3,4            |
+| Test admin post visibility and post-admin user     | Integrated testing     | username, password                          | user logged in admin acccounts, visit "admin post"                                           | user able to view all the admin posts, able to post, a post section visible, user able to enter title, content, upload pictures and post                  | 1,3,4            |
+| Test posting-no input                              | Unit testing           | title, content, picture upload              | no input for title or content                                                                | error message displays: cotent cannot be empty                                                                                                            |                2 |
+| Test posting-no pictures                           | Unit testing           | title, content, picture upload              | no photo uploaded                                                                            | error message displays: please upload picture                                                                                                             |                2 |
+| Test posting-success                               | Unit testing           | title, content, picture upload              | title, content not empty, photo uploaded                                                     | page refreshes, form empties, and the new post is updated at the end of the page                                                                          |                2 |
+| Home page display                                  | Non-functional testing | N/A                                         | visit home page                                                                              | picture, project introduction, project mission, goas visible on the site                                                                                  |                6 |
+| Navigation bar                                     | Unit testing           | N/A                                         | click on each section title                                                                  | when click on each section title, goes to the respective page                                                                                             |                5 |
 
 ## Criteria C
 
