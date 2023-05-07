@@ -1,4 +1,5 @@
 # Ikou Network
+![image](https://user-images.githubusercontent.com/100017195/236658316-9ffe5290-ec10-480e-b00d-01e3d29351f4.png)
 
 ## Criteria A
 
