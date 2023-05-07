@@ -1,6 +1,8 @@
 # Ikou Network
 ![image](https://user-images.githubusercontent.com/100017195/236658316-9ffe5290-ec10-480e-b00d-01e3d29351f4.png)
 
+**Fig 1** Project Ikou Logo designed by Vera Hoffman
+
 ## Criteria A
 
 ### Problem Definition
@@ -36,7 +38,17 @@ To store user information and post informations, SQLite is a great choice since 
 
 ## Criteria B
 
-Design overview (Criterion B) provides evidence that the product could be further developed.
+Design overview:
+
+1. Problem define
+2. Ouline solution
+3. Planning
+4. Development
+5. Beta testing
+6. Gather feedback
+7. Implementation of feedback
+8. Final beta testing
+9. Final feedback on future development
 
 #### diagrams
 - System Diagram.
@@ -204,6 +216,19 @@ msg= ""
             render_template('login.html')
 ```
 
+Since this code is one of the most key and interesting part of my project, I will explain it in detail:
+
+This code presents a function `add_user` that adds a user to a database, setting their admin status based on their email address, and a list `admin_emails`:
+
+`admin_emails` is a list that contains email addresses of admin users. It stores a predefined set of email addresses that are considered as admin emails.
+`add_user(email, username, password)` is the start of the definition of the functino that populate tha user information to the database. It takes three parameters: `email`, `username`, and `password`.
+
+I first connect to the database with `db = database_worker("ikou_network.db")` and then set variable`is_admin = False`. It will be used to determine if the user being added is an admin based on their email, and switched to True if the email is an admin email.
+Next, I used a for loop `for i in admin_emails:` that iterates over the `admin_emails` list. Inside the loop, it checks if the `email` parameter matches any email address in the `admin_emails` list. If a match is found, the `is_admin` variable is set to `True`.
+When the loop ends, I created a query string that includes `email`, `username`, `password`, and `is_admin` values, inserting these values into a table named `users` in the database. Finally, the query is executed and the repective data are stored. 
+
+
+
 ### Success criteria: Posting pictures
 
 The most difficult part of my second success criteria is that it requires the website to be able to let users upload the pictures, and show the pictures in posts. 
@@ -322,23 +347,57 @@ Below is the base template in html:
 
 ## Criteria D
 
+video link:
+
+https://youtu.be/tKwbiUv46QY
+
+(refer to Appendix 4 for plan transcript of video structure)
 
 
 ## Criteria E
 
 ### User Evaluation
-- client ( with reference to the interview)
-  - client feedback reference to appendix
-- other user
+
+After showing the client the first prototype and gathering feedback for implementation (refer Appendix 2), I showed the final product to the client again, and some other users for evaluation with a last beta test. I conducted interviews (refer Appendix 3) with the client and other users, and gathered feedbacks for each success criteria, and general feedback for future development. The feedback is organized into 2 tables shown below. 
+
+### Client
+|                                                                                               Critieria                                                                                              | Met or not? |                                                     Feedback                                                    |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------:|
+| the website has a login and registration system, where users will be separated into administrators and regular users, administrators can only be registered with the emails of the CAS group members | yes         | satisfired, especially the administrator account management, good                                               |
+| the website allows all logged in users to create a post, including title, content, and upload pictures                                                                                               | yes         | good that it implemented the last feedback of displaying username and userid                                    |
+| the website has a section for posting planned trips that is protected that is only accessable to administrators                                                                                      | yes         | good, no feedback                                                                                               |
+| all viewers, no matter logged in or not, are able to view user posts and administrator posts which indludes post title, content, time, and picture                                                   | yes         | good, could improve by adding a like and commenting system                                                      |
+| the website includes a top navigation bar that is visible on every page that guides users to each page.                                                                                              | yes         | good, no feedback                                                                                               |
+| the website displays information about Project Ikou includes project goals, general introduction to the project, and pictures on the home page.                                                      | yes         | good, apart from a home page, could be good if there is also a new page of "my account" for all logged in users |
+
+### Other users
+|                                                                                               Critieria                                                                                              | Met or not? |                                                     Feedback                                                    |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------:|
+| the website has a login and registration system, where users will be separated into administrators and regular users, administrators can only be registered with the emails of the CAS group members | yes         | satisfired, especially the administrator account management, good                                               |
+| the website allows all logged in users to create a post, including title, content, and upload pictures                                                                                               | yes         | good that it implemented the last feedback of displaying username and userid                                    |
+| the website has a section for posting planned trips that is protected that is only accessable to administrators                                                                                      | yes         | good, no feedback                                                                                               |
+| all viewers, no matter logged in or not, are able to view user posts and administrator posts which indludes post title, content, time, and picture                                                   | yes         | good, could improve by adding a like and commenting system                                                      |
+| the website includes a top navigation bar that is visible on every page that guides users to each page.                                                                                              | yes         | good, no feedback                                                                                               |
+| the website displays information about Project Ikou includes project goals, general introduction to the project, and pictures on the home page.                                                      | yes         | good, apart from a home page, could be good if there is also a new page of "my account" for all logged in users |
+
 
 ### Recommendation for future development
 
-#### 1
-identify + justify
+According to the interviews with the client and other users(appendix 3), below are the suggestions for future development. 
 
-#### 2
+#### Like and comment system
 
+Both users and client suggest that in the post section, it would be great if other users can like the posts and make comments below. 
+A like and comment system could be implemented since it would increase the user engagement since it can enhance the user experience by letting users have the ability to interact with the content that other users posted and express their opinions on the posts. This would encourage active participation and would promote a sense of community for the social platform. Comments also allow all the users contribute their knowledge and enrich the given content of the website, it is a utilization of audience. 
 
+#### My account page
+
+Another suggestion for future development would be a "My account" page, where it includes all posts that the logged in user has posted. This would be helpful for users as it provides a concentrated page for them to view their journey on this platform. User log-out could also be moved to this page to put all user-oriented content together for the user. 
+
+#### Sort posts by location
+
+Other users suggested that posts could be sorted according to the location that the trips take place or where the tourist attraction is located. There can also be a sub page guide to each location. 
+This would have a enhanced user navigation since sorting posts by location allows users to easily find and explore content that is relevant to their desired destinations. It also helps by provide users with the geographic context users can access comprehensive information about a particular destination or tourist attraction, which would enhance their understanding and planning of trips.
 
 # Appendix
 
@@ -350,7 +409,16 @@ https://drive.google.com/file/d/1UpFwpFS8vu2FSt0gse6tdO1JlY3B_99_/view?usp=share
 
 **Attatchment 2** Client interview recording (Gooogle Drive link)
 
-## Appendix 2: Client interview - Feedback 
+## Appendix 2: Client beta test feedback
+![client_beta_feedback](https://user-images.githubusercontent.com/100017195/236658824-678339ad-9917-4ea4-97f3-69e85185974a.jpeg)
+**Attatchment 3** Notes from client feedback from the first beta testing of the prototype.
 
+## Appendix 3: Evaluation interview notes
+![Final_evaluation_feedback](https://user-images.githubusercontent.com/100017195/236658978-9d379dd8-1c11-448d-ab38-57b69263b0b5.jpeg)
+**Attatchment 4** Notes from client and other user after final beta testing of evaluation, recomendation suggestions for future development.
+
+## Appendix 4: Video planning
+![video_written_script_outline](https://user-images.githubusercontent.com/100017195/236661728-496c21db-6aa0-4911-b075-e791ae4b7fac.jpeg)
+**Attatchment 5** Video planning document: written script outline
 
 [^1]: “Back-End Development.” Benefits of Choosing Flask | Light IT. Accessed May 4, 2023. https://light-it.net/expertise/backend-development/flask/. 
