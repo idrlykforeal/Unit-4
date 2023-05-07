@@ -73,8 +73,6 @@ Design overview (Criterion B) provides evidence that the product could be furthe
 
 
 
-**Fig #** Example ER diagram of users and posts. 
-
 - Annotated screen mockups or wireframes.
 ![wiafram](https://user-images.githubusercontent.com/100017195/236349210-16fc96d9-19c5-4a13-bfbd-4b38059ebc4f.jpg)
 **Fig #** Wireframe diagram for Ikou Network.
