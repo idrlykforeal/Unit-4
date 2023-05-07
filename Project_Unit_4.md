@@ -113,22 +113,212 @@ Design overview (Criterion B) provides evidence that the product could be furthe
 
 ## Criteria C
 
-### Success criteria 1: Administrator accounts
+## Existing Tools
+
+| Software/Development Tools | Coding Structure Tools          | Libraries      |
+|----------------------------|---------------------------------|----------------|
+| PyCharm                    | Encryption                      | Flask          |
+| Relational databases       | Functions                       | sqlite3        |
+| SQLite                     | If statements                   | passlib        |
+| Python                     | For loops                       | os             |
+| Safari (testing)           |                                 | werkzeug       | 
+|                            |                                 | datetime       |
+
+## List of techniques used
+1. Get/Post methods
+2. For loops
+3. If statements
+4. Password hashing
+5. Interacting with databases
+6. Lists
+7. Cookies
+8. Functions
+
+### Success criteria: Login/registration + Administrator accounts
+
+The first problem encountered in the development process is how to register accounts, specifically how to add users of specific emails to administrator accounts. I broke down the problem with **decomposition** and solved each parts individually to make it work. To realize the separation of regular accounts and admin accounts, I decided to add a column of boolean value to the users table to store if they are administrators when users register. To sovle the problem of determining whether users are administrators or not, with **algorithmic thinking** , I came up with a solution of first creating a list of emails stored in MyLib.py (library code), and I subsequently wrote a general function of adding new users that includes checking whether the user input is any of the emails in the list with the structure of a loop before adding new users to the database. Add user code displayed below:
+
+```.py
+
+admin_emails= ["2024.ziqian.ni@uwcisak.jp","2024.yining.zhang@uwcisak.jp","2024.vera.hoffman@uwcisak.jp"]
+
+def add_user(email, username, password):
+    db = database_worker("ikou_network.db")
+    is_admin = False
+    for i in admin_emails:
+        if email == i:
+            is_admin = True
+    query = f"INSERT INTO users (email, username, password, is_admin) VALUES ('{email}', '{username}','{password}', '{is_admin}')"
+    db.run_save(query)
+    db.close()
+```
+
+With **pattern recognition** I recognized the frequent usage of adding users and validation within the development of login and registration. So, in my library of code Mylib.py, I wrote functions that help add users (displayed above) and validations that can be called in the main app.py to avoid repetition and improve the efficiency of the code. Example of validating email and password shown below:
+
+```.py
+def validate_email(email):
+    msg=""
+    if "@" not in email:
+        msg = "email must contain @."
+    if " " in email:
+        msg = "email must not contain space."
+    #check if email already registered
+    db = database_worker("ikou_network.db")
+    query = f"SELECT * FROM users WHERE email = '{email}'"
+    result = db.search(query)
+    if len(result) != 0:
+        msg = "Email already registered."
+    return msg
+# validation of password: length and match
+def validate_password(password, password_confirm):
+    msg=""
+    if len(password) < 8:
+        msg = "Password must be at least 8 characters."
+    if password != password_confirm:
+        msg += "Password does not match"
+    return msg
+```
+In general, the registration process is decomposed and realized in 4 steps: fetch, validate(mentioned above), encrypt, and store. So for the 3rd step, to ensure user security of their password, I employed a sha256 hash into the entered password, and then stored the password in to the database. The general code of the process of registration can be seen as below:
+
+```.py
+msg= ""
+        success = ""
+
+        email = request.form['email']
+        username=request.form['username']
+        passwd=request.form['passwd']
+        confirm_passwd=request.form['confirm_passwd']
+
+        # validate username
+        msg += validate_username(username)
+
+        # validate email
+        msg += validate_email(email)
+
+        # validate password
+        msg =validate_password(passwd, confirm_passwd)
+
+        if msg == "":
+            hashed_password = encrypt_pswd(passwd)
+            add_user(email=email, username=username, password=hashed_password)
+            success="You have successfully registered!"
+            render_template('login.html')
+```
+
+### Success criteria: Posting pictures
+
+The most difficult part of my second success criteria is that it requires the website to be able to let users upload the pictures, and show the pictures in posts. 
+
+I broke down the problem into 2 main setps: upload, and fetching the photo for displaying the post (**decomposition**) and generated general flow diagrams to help me understand the general process (**algorithmic thinking, abstraction**) (View Fig. xxx from Criteria B)
+
+For uploading the pictures, 2 sub-steps are identified: storing the photo into a sub folder under static, and also storing the name of the photo to the respective column of the database, details shown in code below:
+
+```.py
+# getting a secured file name for the image
+            filename = secure_filename(post_image.filename)
+            
+            # storing image in the static/photos folder with the name
+            post_image.save(os.path.join(app.root_path, 'static/photos', filename))
+
+            # add post to database
+            add_post(username=username ,user_id=user_id, title=post_title, content=post_content, photo=filename)
+```
+
+To fetch the images with all information (title, content) of the posts to display the posts in html, I first used **algorithmic thinking** , displaying all posts one by one in a loop. For the display of the photo, I first fetched the filename, and put it in a structured image directory: /static/photos, so that they fetch the photo file that has the same name stored in the database. (**abstraction**)
+
+```.html
+{% for post in user_posts %}
+        <div class="row">
+            <div class="card">
+              <h3>{{ post [1] }}</h3>
+              <h5>user id:{{ post [4] }}</h5>
+                <h5> username: {{ post [3] }}</h5>
+                <h5>date: {{ post [5] }}</h5>
+                {% if post[6] %}
+                <img src="/static/photos/{{ post [6] }}" alt="post image">
+                {% endif %}
+              <p>{{ post [2] }}</p>
+            </div>
+        </div>
+    {% endfor %}
+```
 
 
-### Success criteria 2: Posting pictures
+### Success criteria: Protected administrator content
 
-### Success criteria 3: Protected administrator content
+My critera 3 requires there to be a form section for posting planned trips to be only accessable to administrator accounts. 
 
-### Success criteria 4: View post whether
+I decomposed the problem into: fetch current user status and information with cookies, determining whether to diplay or not. (**decomposition**)
 
-### Success criteria 5: Navigation bar
+First, user information from the cookies can determine they are logged into administrator accounts, information stored in user_info. Python code in detail below:
 
+```.py
+    if request.cookies.get('user_id'):
+        userid = request.cookies.get('user_id')
+        user_info = db.search(f"SELECT * FROM users WHERE id = '{userid}'")[0]
+```
 
-Success criteria 
-Problem: what im solving, what the problem is 
-Code 
-Explain the code —explanation: put computational thinking 
+I then return user_info to the html template of planned_trips.html, and used a "if" structure (**algorithmic thinking**) to separate the display of the content. HTML code in detail below: 
+
+```.html
+{% if user_info[4] == "True" %}
+        {% if msg %}
+        <p class = 'error_message'>{{ msg }}</p>
+        {% endif %}
+        <form method="post" enctype="multipart/form-data" class="form">
+            <h3>Hi {{ user_info[2] }}, post a new planned trip! </h3>
+            <input type="text" name="title" placeholder="Title"><br>
+            <textarea name="content" placeholder="Content"></textarea><br>
+            <input type="file" id="photo" name="photo">
+
+            <input type="submit" value="Post">
+        </form>
+    {% else %}
+    <p>Log in to administrator account to post new trip inforamtions!</p>
+    {% endif %}
+    </div>
+```
+
+### Success criteria: Navigation bar
+
+My 5th success criteria requires a navigation bar that is present in every page that the user goes to and guide the users through the pages. I identified this re-accuring pattern of the bar being present on all the pages, so I decided to create a base template (base.html) that can be used and extended on all the pages. (**pattern recognition**)
+
+I also applied **abstraction** as a computatinoal thinking skill here because instead of duplicating the code for the navigation bar on every page, I created a separate template that can be reused and extended as needed. This approach promotes efficiency and maintainability, as any changes made to the base template will automatically propagate to all the pages. So there will be no need for specific changes within each html files if I need to change the structure such as adding one more page. This would also make things easier for the future developers if they would like to add more pages to the website.
+
+Below is the base template in html:
+
+```.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>{{ title }} </title>
+    {% else %}
+    <title>Welcome</title>
+    {% endif %}
+    <link rel="stylesheet" href = "/static/mystyle.css">
+</head>
+
+<div class="navigation_bar"> {# nav bar #}
+    {# add a logo #}
+    <img src = "/static/IkouLogo.png" alt = "logo" width = "90" height = "90">
+
+    <a href = {{  url_for("logout")  }}>Logout </a>
+    <a href = {{  url_for("login")  }}>Login/Register </a>
+    <a href = {{  url_for("posts")  }}>Share Your Experience </a>
+    <a href = {{  url_for("planned_trips")  }}>Planned Trips</a>
+    <a href = {{  url_for("home")  }}>Home </a>
+    
+</div>
+<body>
+
+{% block content %} {% endblock %}
+
+</body>
+
+</html>
+```
 
 
 ## Criteria D
