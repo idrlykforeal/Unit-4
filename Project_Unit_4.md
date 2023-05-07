@@ -54,41 +54,41 @@ Design overview:
 - System Diagram.
 <img width="1252" alt="image" src="https://user-images.githubusercontent.com/100017195/236354824-3c19ee2b-650b-4030-a5dc-84f192877922.png">
 
-**Fig #** System diagram of Ikou Network
+**Fig 2** System diagram of Ikou Network
 
 - Flow diagrams for algorithms.
 ![flow_login](https://user-images.githubusercontent.com/100017195/236600976-197924e9-e8e8-45b4-b83a-5c777c814b3a.jpeg)
 
-**Fig #** Flow diagram for login algorithm
+**Fig 3** Flow diagram for login algorithm
 
 ![API flowchart example](https://user-images.githubusercontent.com/100017195/236601032-379bff5e-531a-49d4-b1b9-0ba24570ad3a.jpeg)
 
-**Fig #** Flow diagram for validation of username
+**Fig 4** Flow diagram for validation of username
 
 ![flow_adminposts](https://user-images.githubusercontent.com/100017195/236601041-4a998e3a-5c19-4827-9822-0aa972b000d7.jpeg)
 
-**Fig #** Flow diagram for administrator post algorithm
+**Fig 5** Flow diagram for administrator post algorithm
 
 
 - Database ER diagram 
 <img width="957" alt="image" src="https://user-images.githubusercontent.com/100017195/236351392-7371d4fb-27a7-4472-942f-9990d4e19202.png">
 
-**Fig #** ER diagram for example data entities used
+**Fig 6** ER diagram for example data entities used
 
   - example data:
 <img width="665" alt="image" src="https://user-images.githubusercontent.com/100017195/236601117-bec92def-ee34-468c-a848-0030c499f9a5.png">
 
-**Fig #** Screenshot example of how the user table is structured
+**Fig 7** Screenshot example of how the user table is structured
 
 <img width="1144" alt="image" src="https://user-images.githubusercontent.com/100017195/236601254-9f437f14-d618-47a6-9498-08868471ccd4.png">
 
-**Fig #** Screenshot example of how the posts table is structured
+**Fig 8** Screenshot example of how the posts table is structured
 
 
 
 - Annotated screen mockups or wireframes.
 ![wiafram](https://user-images.githubusercontent.com/100017195/236349210-16fc96d9-19c5-4a13-bfbd-4b38059ebc4f.jpg)
-**Fig #** Wireframe diagram for Ikou Network.
+**Fig 9** Wireframe diagram for Ikou Network.
 
 ### Record of Tasks
 | Task No |                              Planned Action                              |                                                                                          Planned Outcome                                                                                          | Time estimate | Target completion date | Criterion |
