@@ -1,0 +1,40 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+    {# introduction to project ikou #}
+    <div class="header-bg">
+        <h1>Project Ikou</h1>
+    </div>
+
+    <div class="container">
+        <h2>What is Project Ikou?</h2>
+            <p>
+                Project Ikou is a student led project based in UWC ISAK Japan that aims to promote torism around Karuizawa. UWC ISAK Japan is a renowned international school located in the picturesque town of Karuizawa, Nagano. While the school has become a hub for diverse cultures and learning opportunities, it is important to also prioritize strengthening its relationship with the local community. One way to achieve this is by offering free trips around Karuizawa for the community, which not only benefits the local residents but also promotes the town's tourism globally. By showcasing the town's natural beauty, cultural heritage, and unique attractions, we can attract more visitors and help sustain the local economy. This initiative will not only foster a sense of belonging for the community but also contribute to the overall growth and prosperity of the region.
+            </p>
+        <hr>
+
+    </div>
+    <div class="container">
+        <h2>Ikou Missions</h2>
+        <p>
+            Project Ikou aims to Strengthen connection between UWC ISAK and the local community by providing the community free trips around Karuizawa while promoting the local tourism globally.
+        </p>
+
+        <hr>
+
+    </div>
+    <div class="container">
+        <h2>Ikou Goals</h2>
+        <p>
+            To organize at least 5 trips to nearby towns for the ISAK community where students pay the minumum and promote the local cultures to a more international aspect.
+        </p>
+    </div>
+
+<script>
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header-bg');
+        header.style.opacity = 1 - +window.pageYOffset / header.offsetHeight;
+    });
+</script>
+
+{% endblock %}

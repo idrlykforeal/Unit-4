@@ -1,0 +1,30 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+
+    {% if message %}
+    <p class="error_message"> {{ message }}</p>
+    {% endif %}
+        <form method ="post" class="login_form">
+            <h2>Login</h2>
+            <div>
+                <label for="">Username</label>
+                <input type="username" name = "username">
+            </div>
+            <div>
+                <label for="">Password</label>
+                <input type ="password" name="passwd">
+            </div>
+            <div>
+                <input type="submit" name="" value="Login">
+            </div>
+            <div>
+                <p>if you do not have an account, please register your account</p>
+                <a href = "/register">Register</a>
+            </div>
+
+        </form>
+
+
+{% endblock %}
+

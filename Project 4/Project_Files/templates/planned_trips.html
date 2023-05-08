@@ -1,0 +1,50 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+    <div class="header">
+        <h2>Planned Trips</h2>
+    </div>
+
+    {% if admin_posts %}
+    {% for post in admin_posts %}
+        <div class="row">
+            <div class="card">
+              <h3>{{ post [1] }}</h3>
+              <h5>user id:{{ post [3] }}</h5>
+                <h5> username: {{ post [6] }}</h5>
+                <h5>date: {{ post [4] }}</h5>
+                {% if post[5] %}
+                <img src="/static/photos/{{ post [5] }}" alt="post image">
+                {% endif %}
+              <p>{{ post [2] }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+{% else %}
+        <p>no planned trips available</p>
+
+    {% endif %}
+
+    <div class="right-panel">
+
+    {% if user_info[4] == "True" %}
+        {% if msg %}
+        <p class = 'error_message'>{{ msg }}</p>
+        {% endif %}
+        <form method="post" enctype="multipart/form-data" class="form">
+            <h3>Hi {{ user_info[2] }}, post a new planned trip! </h3>
+            <input type="text" name="title" placeholder="Title"><br>
+            <textarea name="content" placeholder="Content"></textarea><br>
+            <input type="file" id="photo" name="photo">
+
+            <input type="submit" value="Post">
+        </form>
+    {% else %}
+    <p>Log in to administrator account to post new trip inforamtions!</p>
+    {% endif %}
+    </div>
+
+
+
+{% endblock %}

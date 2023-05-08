@@ -1,0 +1,51 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+    <div class="header">
+        <h2>User Posts</h2>
+    </div>
+
+
+    {% if user_posts %}
+    {% for post in user_posts %}
+        <div class="row">
+            <div class="card">
+              <h3>{{ post [1] }}</h3>
+              <h5>user id:{{ post [4] }}</h5>
+                <h5> username: {{ post [3] }}</h5>
+                <h5>date: {{ post [5] }}</h5>
+                {% if post[6] %}
+                <img src="/static/photos/{{ post [6] }}" alt="post image">
+                {% endif %}
+              <p>{{ post [2] }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% else %}
+    <p>no user posts available</p>
+
+    {% endif %}
+
+    <div class="right-panel">
+        {% if user_id %}
+        <form method="post" enctype="multipart/form-data" class="form">
+            <h3>Hi {{ username }}, post a new post here! </h3>
+            {% if msg %}
+                <p class="error_message">{{ msg }}</p>
+            {% endif %}
+            <input type="text" name="title" placeholder="Title"><br>
+            <textarea name="content" placeholder="Content"></textarea><br>
+            <input type="file" id="photo" name="photo">
+
+            <input type="submit" value="Post">
+
+        </form>
+    {% else %}
+    <p>You are logged out, please login to your account to post</p>
+    {% endif %}
+    </div>
+
+
+
+{% endblock %}
