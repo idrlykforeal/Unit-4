@@ -91,7 +91,8 @@ Design overview:
 
 
 - Annotated screen mockups or wireframes.
-![wiafram](https://user-images.githubusercontent.com/100017195/236349210-16fc96d9-19c5-4a13-bfbd-4b38059ebc4f.jpg)
+![Blank diagram](https://github.com/idrlykforeal/Unit-4/assets/100017195/c77c6ed7-72e9-4154-8d41-3039fdca2e48)
+
 **Fig 10** Wireframe diagram for Ikou Network.
 
 ### Record of Tasks
