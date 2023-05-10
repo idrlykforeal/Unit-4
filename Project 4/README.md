@@ -121,8 +121,7 @@ Design overview:
 |      26 | Evaluation: client and other user                                        | ask the client and another user to do beta testing on the program.                                                                                                                                | 45 mins       |                  May 6 | E         |
 |      27 | Evaluation: client and user interview                                    | conduct interviews with the client and user that have used the prototype website. confirm if the success critera are met, and gather further feedback/recommendations that could be implemented.  | 10 mins       |                  May 6 | E         |
 |      28 | Implement: implement recommendations                                     | implement the recommendations that were gathered in the interview with the user and the client after their beta testing                                                                           | 45 mins       |                  May 7 | C, E      |
-|      29 | Functionality: video script                                              | write video script                                                                                                                                                                                | 10 mins       |                  May 7 | D         |
-|      30 | Functionality: video creation                                            | create video that demonstrates the functionality and extensibility of the program                                                                                                                 | 10 mins       |                  May 7 | D         |
+
 
 ### Design Overview
 
@@ -169,6 +168,7 @@ Design overview:
 6. Lists
 7. Cookies
 8. Functions
+9. OOP (object oriented programming)
 
 ### Success criteria: Login/registration + Administrator accounts
 
@@ -188,8 +188,17 @@ def add_user(email, username, password):
     db.run_save(query)
     db.close()
 ```
+Separating admin and regular users is one of the most key and interesting part of my project, I will explain it in detail:
 
-With **pattern recognition** I recognized the frequent usage of adding users and validation within the development of login and registration. So, in my library of code Mylib.py, I wrote functions that help add users (displayed above) and validations that can be called in the main app.py to avoid repetition and improve the efficiency of the code. Example of validating email and password shown below:
+This code presents a function `add_user` that adds a user to a database, setting their admin status based on their email address, and a list `admin_emails`:
+`admin_emails` is a list that contains email addresses of admin users. It stores a predefined set of email addresses that are considered as admin emails.
+`add_user(email, username, password)` is the start of the definition of the functino that populate tha user information to the database. It takes three parameters: `email`, `username`, and `password`.
+I first connect to the database with `db = database_worker("ikou_network.db")` and then set variable`is_admin = False`. It will be used to determine if the user being added is an admin based on their email, and switched to True if the email is an admin email.
+Next, I used a for loop `for i in admin_emails:` that iterates over the `admin_emails` list. Inside the loop, it checks if the `email` parameter matches any email address in the `admin_emails` list. If a match is found, the `is_admin` variable is set to `True`.
+When the loop ends, I created a query string that includes `email`, `username`, `password`, and `is_admin` values, inserting these values into a table named `users` in the database. Finally, the query is executed and the repective data are stored. 
+
+
+Continue with the break down of this aim, with **pattern recognition** I recognized the frequent usage of adding users and validation within the development of login and registration. So, in my library of code Mylib.py, I wrote functions that help add users (displayed above) and validations that can be called in the main app.py to avoid repetition and improve the efficiency of the code. Example of validating email and password shown below:
 
 ```.py
 def validate_email(email):
@@ -241,16 +250,7 @@ msg= ""
             render_template('login.html')
 ```
 
-Since this code is one of the most key and interesting part of my project, I will explain it in detail:
 
-This code presents a function `add_user` that adds a user to a database, setting their admin status based on their email address, and a list `admin_emails`:
-
-`admin_emails` is a list that contains email addresses of admin users. It stores a predefined set of email addresses that are considered as admin emails.
-`add_user(email, username, password)` is the start of the definition of the functino that populate tha user information to the database. It takes three parameters: `email`, `username`, and `password`.
-
-I first connect to the database with `db = database_worker("ikou_network.db")` and then set variable`is_admin = False`. It will be used to determine if the user being added is an admin based on their email, and switched to True if the email is an admin email.
-Next, I used a for loop `for i in admin_emails:` that iterates over the `admin_emails` list. Inside the loop, it checks if the `email` parameter matches any email address in the `admin_emails` list. If a match is found, the `is_admin` variable is set to `True`.
-When the loop ends, I created a query string that includes `email`, `username`, `password`, and `is_admin` values, inserting these values into a table named `users` in the database. Finally, the query is executed and the repective data are stored. 
 
 
 
@@ -361,12 +361,26 @@ Below is the base template in html:
     
 </div>
 <body>
-
 {% block content %} {% endblock %}
-
 </body>
-
 </html>
+```
+
+This code is interesting because although it is a HTML code, it also has python in it, I will explain: 
+
+`{% if title %}` is a conditional statement that checks if the variable title exists and is not empty. Here it is used to check if a value has been passed to the template for the title variable. If the title variable exists and is not empty, title will appear, where the `title` is a variable from the python code, and is used in html in the following form `<title>{{ title }} </title>`.
+On the other hand, if the title variable does not exist or is empty, the code will fall into the `{% else %}` block. In this case, a default title of "Welcome" is provided instead, using the line `<title>Welcome</title>`. The conditional statment ends with `{% end if %}`
+
+Ahother interesting part is that everything outside the `{% block content %} {% endblock %}` can be repeated in all html templates that employ the template, and could insert more content within `{% block content %} {% endblock %}` as shown below.
+
+```.py
+{% extends "base_template.html" %}
+
+{% block content %}
+
+    # code not shown for simplicity
+
+{% endblock %}
 ```
 
 
