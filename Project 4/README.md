@@ -52,8 +52,7 @@ Design overview:
 
 #### diagrams
 - System Diagram.
-<img width="1252" alt="image" src="https://user-images.githubusercontent.com/100017195/236354824-3c19ee2b-650b-4030-a5dc-84f192877922.png">
-
+![system_diagram_U3_project](https://github.com/idrlykforeal/Unit-4/assets/100017195/752d458b-45c7-4a26-b110-93cd10858b13)
 **Fig 2** System diagram of Ikou Network
 
 - Flow diagrams for algorithms.
@@ -84,11 +83,16 @@ Design overview:
 
 **Fig 8** Screenshot example of how the posts table is structured
 
+- UML diagram
+
+![image](https://github.com/idrlykforeal/Unit-4/assets/100017195/c0aa2c84-1a31-490f-8f20-3973496086dc)
+
+**Fig 9** UML diagram of the only class used(database worker)
 
 
 - Annotated screen mockups or wireframes.
 ![wiafram](https://user-images.githubusercontent.com/100017195/236349210-16fc96d9-19c5-4a13-bfbd-4b38059ebc4f.jpg)
-**Fig 9** Wireframe diagram for Ikou Network.
+**Fig 10** Wireframe diagram for Ikou Network.
 
 ### Record of Tasks
 | Task No |                              Planned Action                              |                                                                                          Planned Outcome                                                                                          | Time estimate | Target completion date | Criterion |
